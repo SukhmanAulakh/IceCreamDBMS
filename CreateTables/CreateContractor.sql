@@ -6,5 +6,5 @@ CREATE TABLE Customer (
     Email VARCHAR2(100),
     Phone VARCHAR2(20)
 
-    # Changes by Rahul
+    # Changes by Rahul Vankwani
 );
