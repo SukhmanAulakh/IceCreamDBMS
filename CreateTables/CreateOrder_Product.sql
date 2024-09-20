@@ -6,4 +6,4 @@ CREATE TABLE Order_Product (
     PRIMARY KEY (Order_ID, Product_ID)
     FOREIGN KEY (ORDER_ID) REFERENCES Order(Order_ID),
     FOREIGN KEY (Product_ID) REFERENCES Product(Product_ID)
-);
+); -- Hi
