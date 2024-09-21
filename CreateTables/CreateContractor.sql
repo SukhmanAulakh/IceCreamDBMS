@@ -4,7 +4,5 @@ CREATE TABLE Customer (
     Name VARCHAR2(100),
     Address VARCHAR2(500),
     Email VARCHAR2(100),
-    Phone VARCHAR2(20)
-
-    # Changes by Rahul Vankwani
-);
+    Phone VARCHAR2(20));
+--hello danny how are you
