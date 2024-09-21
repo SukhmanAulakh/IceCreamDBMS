@@ -1,6 +1,8 @@
 --create department table
 CREATE TABLE Department (
-    Department_ID INTEGER PRIMARY KEY,
+    Department_ID NUMBER(15,0) PRIMARY KEY,
     Department_Name VARCHAR2(25) NOT NULL,
-    Number_Of_Employees INTEGER
+    Department_Manager NUMBER(15,0),
+    Number_Of_Employees NUMBER(15,0),
+    FOREIGN KEY (Department_Manager) REFERENCES Employee(Employee_ID)
 );
