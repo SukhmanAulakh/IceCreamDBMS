@@ -2,6 +2,5 @@
 CREATE TABLE Product (
     Product_ID INTEGER PRIMARY KEY,
     Product_Name VARCHAR2(100),
-    Product_Price NUMBER(10,2),
-    FOREIGN KEY (Customer_ID) REFERENCES Customer(Customer_ID)
+    Product_Price NUMBER(10,2)
 );

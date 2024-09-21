@@ -5,6 +5,6 @@ CREATE TABLE Employee (
     Emp_Position VARCHAR2(25),
     Emp_Shift VARCHAR2(25),
     Emp_JoinDate DATE,
-    Emp_Salary VARCHAR2(25)
+    Emp_Salary INTEGER NOT NULL,
     Emp_DateOfBirth DATE
 );
