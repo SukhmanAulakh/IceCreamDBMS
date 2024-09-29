@@ -1,0 +1,78 @@
+--Contractor
+INSERT INTO CONTRACTOR VALUES ('1','Billy Electric','4501 Electric Ave','Linda','billyelectric@gmail.com','+1-902-232-9012');
+INSERT INTO CONTRACTOR VALUES ('2','Transport Express','15 Industrial Road','Jack Apple','','+1-541-452-2398');
+
+--Customer
+INSERT INTO CUSTOMER VALUES ('1','Sarah C','151 Basic Circle','sarahc@yahoo.ca','+1-133-132-2414');
+INSERT INTO CUSTOMER VALUES ('2','Dashawn Jackson','9 Grove Street','djackson@gmail.com','');
+
+--Employee
+INSERT INTO EMPLOYEE VALUES ('123','John','CEO','9-12','2024/09/20','500000','2000/08/13','123 Blue Street','johnceo@gmail.com','');
+INSERT INTO EMPLOYEE VALUES ('456','Doe','Associate','10-1','2023/10/10','30000','2020/09/13','345 Red Street','','+1-690-203-1290');
+INSERT INTO EMPLOYEE VALUES ('111','Sam','Ingredient Handler','1-11','2010/12/21','70000','2000/01/30','3131 Manad Ave','','+1-140-343-4790');
+INSERT INTO EMPLOYEE VALUES ('141','Ben','Ice Cream Handler','1-11','2012/08/28','60000','2001/04/27','4156 Banam Circle','ben1241@gmail.com','');
+
+--Department
+INSERT INTO DEPARTMENT VALUES ('1','Management','2','123');
+INSERT INTO DEPARTMENT VALUES ('2','Inventory','2','123');
+
+--Link Employee and Department
+INSERT INTO DEPARTMENT_EMPLOYEE VALUES ('1','123','2024/09/21');
+INSERT INTO DEPARTMENT_EMPLOYEE VALUES ('1','456','2024/09/22');
+INSERT INTO DEPARTMENT_EMPLOYEE VALUES ('2','111','2010/12/21');
+INSERT INTO DEPARTMENT_EMPLOYEE VALUES ('2','141','2012/08/28');
+
+--Inventory
+INSERT INTO INVENTORY VALUES ('101','Vanilla Ice Cream','Product','100','Liters','141');
+INSERT INTO INVENTORY VALUES ('102','Strawberry Ice Cream','Product','100','Liters','141');
+INSERT INTO INVENTORY VALUES ('220','Milk','Ingredient','1000','Liters','111');
+INSERT INTO INVENTORY VALUES ('230','Sugar','Ingredient','1000','Kilograms','111');
+INSERT INTO INVENTORY VALUES ('240','Vanilla Extract','Ingredient','100','Liters','111');
+INSERT INTO INVENTORY VALUES ('241','Strawberry Flavouring','Ingredient','50','Liters','111');
+
+--Supplier
+INSERT INTO SUPPLIER VALUES ('101','143 Hansen Blvd','Dairy Inc.','dairy@hansendairy.com','+1-625-910-2315');
+INSERT INTO SUPPLIER VALUES ('102','524 Mango Blvd','TastyChem Co.','chem@tastychem.com','+1-145-450-4511');
+
+--Link Supplier and Inventory
+INSERT INTO SUPPLIER_INVENTORY VALUES ('101','220','1000','10000');
+INSERT INTO SUPPLIER_INVENTORY VALUES ('102','230','1000','10000');
+INSERT INTO SUPPLIER_INVENTORY VALUES ('102','240','100','7500');
+INSERT INTO SUPPLIER_INVENTORY VALUES ('102','241','50','2500');
+
+--Machine
+INSERT INTO MACHINE VALUES ('100','Freezer','Storage','10');
+INSERT INTO MACHINE VALUES ('101','Auto-Packager','Storage','2');
+INSERT INTO MACHINE VALUES ('200','Mixer','Production','5');
+INSERT INTO MACHINE VALUES ('201','Injector','Production','8');
+
+--Orders
+INSERT INTO ORDERS VALUES ('1','151 Basic Circle', '2001/01/08','200','100','1');
+INSERT INTO ORDERS VALUES ('2','151 Basic Circle', '2002/01/08','400','100','1');
+INSERT INTO ORDERS VALUES ('3','9 Grove Street', '2010/02/26','3000','100','2');
+
+--Product
+INSERT INTO PRODUCT VALUES ('101','Vanilla Ice Cream','10');
+INSERT INTO PRODUCT VALUES ('102','Strawberry Ice Cream','10');
+
+--Link Order and Product
+INSERT INTO ORDER_PRODUCT VALUES ('1','101', '10');
+INSERT INTO ORDER_PRODUCT VALUES ('1','102', '10');
+INSERT INTO ORDER_PRODUCT VALUES ('2','101', '40');
+INSERT INTO ORDER_PRODUCT VALUES ('3','102', '300');
+
+--Link Product and Inventory
+INSERT INTO PRODUCT_INVENTORY VALUES ('101','101', '1');
+INSERT INTO PRODUCT_INVENTORY VALUES ('220','101', '1');
+INSERT INTO PRODUCT_INVENTORY VALUES ('230','101', '1');
+INSERT INTO PRODUCT_INVENTORY VALUES ('240','101', '1');
+
+INSERT INTO PRODUCT_INVENTORY VALUES ('102','102', '1');
+INSERT INTO PRODUCT_INVENTORY VALUES ('220','102', '1');
+INSERT INTO PRODUCT_INVENTORY VALUES ('230','102', '1');
+INSERT INTO PRODUCT_INVENTORY VALUES ('241','102', '1');
+
+--Payment
+INSERT INTO PAYMENT VALUES ('1','10000','Cheque','2023/01/01','','101');
+INSERT INTO PAYMENT VALUES ('2','20000','Cheque','2023/04/12','','102');
+
