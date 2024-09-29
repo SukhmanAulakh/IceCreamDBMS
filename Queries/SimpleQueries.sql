@@ -27,7 +27,7 @@ SELECT * FROM Customer WHERE Customer_ID = '1' AND Customer_Name='Sarah C';
 SELECT Customer_Name, Customer_Address FROM Customer;
 
 -- Select Customer with Name of Deshawn Jackson and lives on 9 Grove Street
-SELECT * FROM Customer WHERE Customer_Name = 'Deshawn Jackson' AND Customer_Address = '9 Grove Street';
+SELECT * FROM Customer WHERE Customer_Name = 'Dashawn Jackson' AND Customer_Address = '9 Grove Street';
 
 -- List all customer names alphabetically
 SELECT * FROM Customer ORDER BY Customer_Name;
