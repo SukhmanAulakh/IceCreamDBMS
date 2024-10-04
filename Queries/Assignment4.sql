@@ -1,12 +1,5 @@
-
--- Select Contractor where ID is 1 and name is Billy Electric
-SELECT * FROM Contractor where Contractor_ID=1 and Contractor_Name ='Billy Electric';
-
 -- Get the total number of contractors
 SELECT COUNT(*) FROM Contractor Order by Contractor_ID;
-
--- Find all contractor names and their addresses
-SELECT Contractor_Name, Contractor_Address FROM Contractor;
 
 -- Select Contractor where the contact person is named Jack Apple and their phone number is +1-541-452-2398
 SELECT * FROM Contractor WHERE Contact_Person = 'Jack Apple' AND Contractor_Phone = '+1-541-452-2398';
@@ -17,9 +10,6 @@ SELECT * FROM Contractor ORDER BY Contractor_Name;
 -- List all contractors that have an email
 SELECT Contractor_Name, Contractor_Email FROM Contractor WHERE Contractor_Email IS NOT NULL;
 
--- Find all Contractor contact persons with their numbers
-SELECT Contact_Person, Contractor_Phone FROM Contractor;
-
 -- Select Customer with ID = 1 and Name as Sarah C
 SELECT DISTINCT * FROM Customer WHERE Customer_ID = '1' AND Customer_Name='Sarah C';
 
@@ -29,11 +19,8 @@ SELECT Customer_Name, Customer_Address FROM Customer;
 -- Select Customer with Name of Deshawn Jackson and lives on 9 Grove Street
 SELECT * FROM Customer WHERE Customer_Name = 'Dashawn Jackson' AND Customer_Address = '9 Grove Street';
 
--- List all customer names alphabetically
-SELECT DISTINCT* FROM Customer ORDER BY Customer_Name;
-
--- List all customers with address that have an email
-SELECT Customer_Address, Customer_Email FROM Customer;
+-- List all customer by names alphabetically
+SELECT DISTINCT * FROM Customer ORDER BY Customer_Name;
 
 -- Find all customer names with a phone number
 SELECT Customer_Name, Customer_Phone FROM Customer WHERE Customer_Phone IS NOT NULL;
@@ -73,3 +60,12 @@ SELECT Quantity FROM ORDER_PRODUCT WHERE ORDER_ID=(SELECT ORDER_ID FROM ORDERS W
 
 -- Find all the inventory id being supplied by Supplier TastyChen Co.
 SELECT ALL Inventory_Name FROM Inventory WHERE Inventory_ID IN (SELECT Inventory_ID FROM Supplier_Inventory WHERE Supplier_ID = (Select Supplier_ID FROM Supplier WHERE Supplier_Name = 'TastyChem Co.'));
+
+-- Call View that Displays the Customer Name, Num of Orders Placed, Num of total Types of Products Purchased, Num Of Ingredients Used
+Select * FROM Customer_Loyalty_Totals;
+
+-- Call View that Displays all payments performed
+SELECT * FROM Payment_All;
+
+-- Call View that Join Orders Table With The Customer
+SELECT * FROM Customer_Order_Details;
