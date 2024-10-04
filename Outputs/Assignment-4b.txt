@@ -1,0 +1,148 @@
+
+  COUNT(*)
+----------
+         2
+
+
+CONTRACTOR_ID CONTRACTOR_NAME                                                                                      CONTRACTOR_ADDRESS                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   CONTACT_PERSON                                                                                       CONTRACTOR_EMAIL                                                                                     CONTRACTOR_PHONE    
+------------- ---------------------------------------------------------------------------------------------------- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- ---------------------------------------------------------------------------------------------------- ---------------------------------------------------------------------------------------------------- --------------------
+            2 Transport Express                                                                                    15 Industrial Road                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   Jack Apple                                                                                                                                                                                                +1-541-452-2398     
+
+
+CONTRACTOR_ID CONTRACTOR_NAME                                                                                      CONTRACTOR_ADDRESS                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   CONTACT_PERSON                                                                                       CONTRACTOR_EMAIL                                                                                     CONTRACTOR_PHONE    
+------------- ---------------------------------------------------------------------------------------------------- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- ---------------------------------------------------------------------------------------------------- ---------------------------------------------------------------------------------------------------- --------------------
+            1 Billy Electric                                                                                       4501 Electric Ave                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Linda                                                                                                billyelectric@gmail.com                                                                              +1-902-232-9012     
+            2 Transport Express                                                                                    15 Industrial Road                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   Jack Apple                                                                                                                                                                                                +1-541-452-2398     
+
+
+CONTRACTOR_NAME                                                                                      CONTRACTOR_EMAIL                                                                                    
+---------------------------------------------------------------------------------------------------- ----------------------------------------------------------------------------------------------------
+Billy Electric                                                                                       billyelectric@gmail.com                                                                             
+
+
+CUSTOMER_ID CUSTOMER_NAME             CUSTOMER_ADDRESS                                                                                     CUSTOMER_EMAIL                 CUSTOMER_PHONE      
+----------- ------------------------- ---------------------------------------------------------------------------------------------------- ------------------------------ --------------------
+          1 Sarah C                   151 Basic Circle                                                                                     sarahc@yahoo.ca                +1-133-132-2414     
+
+
+CUSTOMER_NAME             CUSTOMER_ADDRESS                                                                                    
+------------------------- ----------------------------------------------------------------------------------------------------
+Sarah C                   151 Basic Circle                                                                                    
+Dashawn Jackson           9 Grove Street                                                                                      
+
+
+CUSTOMER_ID CUSTOMER_NAME             CUSTOMER_ADDRESS                                                                                     CUSTOMER_EMAIL                 CUSTOMER_PHONE      
+----------- ------------------------- ---------------------------------------------------------------------------------------------------- ------------------------------ --------------------
+          2 Dashawn Jackson           9 Grove Street                                                                                       djackson@gmail.com                                 
+
+
+CUSTOMER_ID CUSTOMER_NAME             CUSTOMER_ADDRESS                                                                                     CUSTOMER_EMAIL                 CUSTOMER_PHONE      
+----------- ------------------------- ---------------------------------------------------------------------------------------------------- ------------------------------ --------------------
+          2 Dashawn Jackson           9 Grove Street                                                                                       djackson@gmail.com                                 
+          1 Sarah C                   151 Basic Circle                                                                                     sarahc@yahoo.ca                +1-133-132-2414     
+
+
+CUSTOMER_NAME             CUSTOMER_PHONE      
+------------------------- --------------------
+Sarah C                   +1-133-132-2414     
+
+
+INVENTORY_NAME            INVENTORY_TYPE           
+------------------------- -------------------------
+Vanilla Ice Cream         Product                  
+Strawberry Ice Cream      Product                  
+Milk                      Ingredient               
+Sugar                     Ingredient               
+Vanilla Extract           Ingredient               
+Strawberry Flavouring     Ingredient               
+
+6 rows selected. 
+
+
+MACHINE_NAME              MACHINE_TYPE              MACHINE_AGE
+------------------------- ------------------------- -----------
+Mixer                     Production                          5
+Injector                  Production                          8
+Auto-Packager             Storage                             2
+Freezer                   Storage                            10
+
+
+MACHINE_NAME             
+-------------------------
+Mixer
+Injector
+
+
+  ORDER_ID ORDER_ADDRESS                                                                                        ORDER_DA ORDER_PRICE ORDER_STATUS CUSTOMER_ID
+---------- ---------------------------------------------------------------------------------------------------- -------- ----------- ------------ -----------
+         1 151 Basic Circle                                                                                     01-01-08         200          100           1
+         2 151 Basic Circle                                                                                     02-01-08         400          100           1
+
+
+PAYMENT_ID PAYMENT_ PAYMENT_METHOD           
+---------- -------- -------------------------
+         1 23-01-01 Cheque                   
+         2 23-04-12 Cheque                   
+
+
+PRODUCT_ID PRODUCT_NAME                                                                                         PRODUCT_PRICE
+---------- ---------------------------------------------------------------------------------------------------- -------------
+       102 Strawberry Ice Cream                                                                                            10
+
+
+SUPPLIER_NAME             SUPPLIER_EMAIL                 SUPPLIER_PHONE      
+------------------------- ------------------------------ --------------------
+Dairy Inc.                dairy@hansendairy.com          +1-625-910-2315     
+TastyChem Co.             chem@tastychem.com             +1-145-450-4511     
+
+
+DEPARTMENT_ID   COUNT(*)
+------------- ----------
+            1          2
+            2          2
+
+
+INVENTORY_NAME           
+-------------------------
+Milk
+Sugar
+Vanilla Extract
+Vanilla Ice Cream
+
+
+  ORDER_ID ORDER_ADDRESS                                                                                        ORDER_DA ORDER_PRICE ORDER_STATUS CUSTOMER_ID
+---------- ---------------------------------------------------------------------------------------------------- -------- ----------- ------------ -----------
+         1 151 Basic Circle                                                                                     01-01-08         200          100           1
+         2 151 Basic Circle                                                                                     02-01-08         400          100           1
+
+
+  QUANTITY
+----------
+       300
+
+
+INVENTORY_NAME           
+-------------------------
+Sugar
+Vanilla Extract
+Strawberry Flavouring
+
+
+CUSTOMER_NAME             ORDERS_PLACED TOTAL_TYPES_PRODUCT_PURCHASED TOTAL_INGREDIENTS_USED
+------------------------- ------------- ----------------------------- ----------------------
+Dashawn Jackson                       1                             1                      4
+Sarah C                               2                             2                     12
+
+
+PAYMENT_ID PAYMENT_AMOUNT PAYMENT_METHOD            PAYMENT_   ORDER_ID SUPPLIER_ID SUPPLIER_NAME            
+---------- -------------- ------------------------- -------- ---------- ----------- -------------------------
+         2          20000 Cheque                    23-04-12                    102 TastyChem Co.            
+         1          10000 Cheque                    23-01-01                    101 Dairy Inc.               
+         5           3000 Cheque                    10-02-28          3                                      
+
+
+CUSTOMER_ID CUSTOMER_NAME             NUMBER_OF_ORDERS HIGHEST_PURCHASE
+----------- ------------------------- ---------------- ----------------
+          1 Sarah C                                  2              400
+          2 Dashawn Jackson                          1             3000
+
