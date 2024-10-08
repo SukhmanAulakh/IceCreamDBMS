@@ -69,3 +69,7 @@ SELECT * FROM Payment_All;
 
 -- Call View that Join Orders Table With The Customer
 SELECT * FROM Customer_Order_Details;
+
+--Delete From Machine where Machine_Name='Mixer';
+
+--INSERT INTO MACHINE VALUES ('200','Mixer','Production','5'); 
