@@ -6,6 +6,7 @@ package cps510.project;
 
 import java.sql.Connection;
 import java.util.ArrayList;
+import java.util.Arrays;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -2545,92 +2546,182 @@ public class GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton20ActionPerformed
 
+    //Inventory Type TextField
     private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField8ActionPerformed
 
+    //Inventory Quantity TextField
     private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField9ActionPerformed
 
+    //Inventory Unit TextField
     private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField10ActionPerformed
 
+    //Inventory Search Button
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        String query = "SELECT * FROM INVENTORY"; //CHANGE TABLE NAME FOR DIFFERENT TABLES                      
+        String[] columns = {"INVENTORY_ID","INVENTORY_NAME","INVENTORY_TYPE","INVENTORY_QUANTITY","INVENTORY_UNIT","INVENTORY_MANAGER"}; //INPUT ALL TABLES ATTRIBUTES IN ORDER LISTED IN SCHEMA
+        String[] textfieldColumnMap = {jTextField12.getText(),jTextField11.getText(),jTextField8.getText(),jTextField9.getText(),jTextField10.getText(),jTextField49.getText()}; //MAP TEXTFIELDS IN SAME ORDER AS COLUMNS
+        
+        
+        //EVERYTHING UNDER THIS EXCEPT THE OPTION PANEL FRAME IS GENERIC
+        for(int i=0;i<columns.length;i++){
+            if(textfieldColumnMap[i].isBlank()||textfieldColumnMap[i].isEmpty()){
+                continue;
+            }
+            else{
+                if(i==0){
+                    query+=" WHERE "+columns[i]+" = "+textfieldColumnMap[i];
+                }
+                else
+                {
+                    query+=" AND "+columns[i]+" = "+textfieldColumnMap[i];
+                }
+            }
+        }
+        
+        JDBCOracleConnection jdbc = new JDBCOracleConnection();
+        ArrayList<String> list = jdbc.getQuery(query, columns);
+        
+        String result = "";
+        for(int i=0;i<columns.length+1;i++){
+            if(i==0){
+                result+="Columns:\n";
+            }
+            if(i==(columns.length-1)){
+                result+=columns[i];
+            }
+            else if(i==columns.length){
+                result+="\n\n";
+            }
+            else{
+                result+=columns[i]+" | ";
+            }
+        }
+        for(int i=0;i<list.size();i++){
+            if(i==0){
+                result+="Rows:\n";
+            }
+            result+=list.get(i)+"\n";
+        }
+        //CHANGE TITLE TO TABLE NAME
+        JOptionPane.showMessageDialog(null, result, "Result: Inventory", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    //Inventory Name TextField
     private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField11ActionPerformed
 
+    //Inventory ID TextField
     private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField12ActionPerformed
 
+    //Inventory Insert Button
     private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
-        // TODO add your handling code here:
+        String tableName = "INVENTORY";//Change Table Name for diff tables
+        String[] columns = {"INVENTORY_ID","INVENTORY_NAME","INVENTORY_TYPE","INVENTORY_QUANTITY","INVENTORY_UNIT","INVENTORY_MANAGER"}; //INPUT ALL TABLES ATTRIBUTES IN ORDER LISTED IN SCHEMA
+        String[] columnTypes = {"NUMBER","VARCHAR2","VARCHAR2","NUMBER","VARCHAR2","NUMBER"}; //STORES TYPES FOR ALL COLUMNS WILL HANDLE TO_DATE CONVERSION
+        String[] textfieldColumnMap = {jTextField12.getText(),jTextField11.getText(),jTextField8.getText(),jTextField9.getText(),jTextField10.getText(),jTextField49.getText()}; //MAP TEXTFIELDS IN SAME ORDER AS COLUMNS
+        
+        JDBCOracleConnection jdbc = new JDBCOracleConnection();
+        Boolean status = jdbc.insert(tableName, textfieldColumnMap,columnTypes);
+        
+        String result="";
+        if(status){
+            result="Insert into "+tableName+": Successful!\n\n"+Arrays.toString(textfieldColumnMap);
+        }
+        else
+        {
+            result="Insert into "+tableName+": unsuccessful...";
+        }
+        System.out.println(jTextField61.getText());
+        JOptionPane.showMessageDialog(null, result, "Result: Insert into ->"+tableName, JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jButton21ActionPerformed
 
+    //Inventory Delete Button
     private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
-        // TODO add your handling code here:
+        String tableName = "INVENTORY";//Change Table Name for diff tables
+        String[] columns = {"INVENTORY_ID","INVENTORY_NAME","INVENTORY_TYPE","INVENTORY_QUANTITY","INVENTORY_UNIT","INVENTORY_MANAGER"}; //INPUT ALL TABLES ATTRIBUTES IN ORDER LISTED IN SCHEMA
+        String[] columnTypes = {"NUMBER","VARCHAR2","VARCHAR2","NUMBER","VARCHAR2","NUMBER"}; //STORES TYPES FOR ALL COLUMNS WILL HANDLE TO_DATE CONVERSION
+        String[] textfieldColumnMap = {jTextField12.getText(),jTextField11.getText(),jTextField8.getText(),jTextField9.getText(),jTextField10.getText(),jTextField49.getText()}; //MAP TEXTFIELDS IN SAME ORDER AS COLUMNS        
+        
+        //EVERYTHING UNDER THIS EXCEPT THE OPTION PANEL FRAME IS GENERIC
+        JDBCOracleConnection jdbc = new JDBCOracleConnection();
+        Boolean status = jdbc.delete(tableName, columns,textfieldColumnMap,columnTypes);
+        
+        String result="";
+        if(status){
+            result="Delete from "+tableName+": Successful!\n\n"+Arrays.toString(textfieldColumnMap);
+        }
+        else
+        {
+            result="Delete from "+tableName+": unsuccessful...";
+        }
+        System.out.println(jTextField61.getText());
+        JOptionPane.showMessageDialog(null, result, "Result: Delete From ->"+tableName, JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jButton22ActionPerformed
 
     private void jTextField39ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField39ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jTextField39ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jTextField42ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField42ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jTextField42ActionPerformed
 
     private void jTextField43ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField43ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jTextField43ActionPerformed
 
     private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButton23ActionPerformed
 
     private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButton24ActionPerformed
 
     private void jTextField44ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField44ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jTextField44ActionPerformed
 
     private void jTextField45ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField45ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jTextField45ActionPerformed
 
     private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButton25ActionPerformed
 
     private void jTextField47ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField47ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jTextField47ActionPerformed
 
     private void jTextField48ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField48ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jTextField48ActionPerformed
 
     private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButton26ActionPerformed
 
     private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButton27ActionPerformed
 
+    //Inventory Manager Textfield
     private void jTextField49ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField49ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jTextField49ActionPerformed
 
     private void jTextField50ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField50ActionPerformed
